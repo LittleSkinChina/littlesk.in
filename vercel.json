@@ -1,0 +1,10 @@
+{
+  "routes": [
+    { "src": "/", "dest": "/api/handler.go" }
+  ],
+  "functions": {
+    "api/handler.go": {
+      "includeFiles": "IP2LOCATION-LITE-DB1.IPV6.BIN"
+    }
+  }
+}
