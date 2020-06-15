@@ -1,0 +1,15 @@
+name: CI
+
+on: [push, pull_request]
+
+job:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Download database
+      run: pwsh download-db.ps1
+    - name: Run tests
+      run: go tests ./...
