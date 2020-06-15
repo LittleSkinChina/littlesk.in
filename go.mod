@@ -1,4 +1,4 @@
-module github.com/LittleSkinChina/littlesk-in
+module github.com/LittleSkinChina/littlesk.in
 
 go 1.14
 
