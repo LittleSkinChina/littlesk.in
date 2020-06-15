@@ -25,12 +25,12 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 	domainName := ""
 	if result.Country_short == "CN" {
-		domainName = "https://mcskin.littleservice.cn/"
+		domainName = "https://mcskin.littleservice.cn"
 	} else {
-		domainName = "https://littleskin.cn/"
+		domainName = "https://littleskin.cn"
 	}
 
-	headers.Set("Location", domainName)
-	headers.Add("X-Authlib-Injector-API-Location", domainName+"api/yggdrasil")
+	headers.Set("Location", domainName+r.URL.String())
+	headers.Add("X-Authlib-Injector-API-Location", domainName+"/api/yggdrasil")
 	w.WriteHeader(http.StatusTemporaryRedirect)
 }
