@@ -6,5 +6,16 @@
     "api/handler.go": {
       "includeFiles": "IP2LOCATION-LITE-DB1.IPV6.BIN"
     }
-  }
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        }
+      ]
+    }
+  ]
 }
