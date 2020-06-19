@@ -9,19 +9,21 @@ import (
 const (
 	domainNameGlobal   string = "https://littleskin.cn"
 	domainNameMainland string = "https://mcskin.littleservice.cn"
+
+	dbPath string = "./IP2LOCATION-LITE-DB1.IPV6.BIN"
 )
 
 // Handler handles request.
 func Handler(w http.ResponseWriter, r *http.Request) {
-	db, err := ip2location.OpenDB("./IP2LOCATION-LITE-DB1.IPV6.BIN")
+	db, err := ip2location.OpenDB(dbPath)
 	if err != nil {
-		http.Error(w, "failed to open database", http.StatusInternalServerError)
+		makeResponse(domainNameMainland, w, r)
 		return
 	}
 
 	result, err := db.Get_all(r.RemoteAddr)
 	if err != nil {
-		http.Error(w, "failed to look up", http.StatusInternalServerError)
+		makeResponse(domainNameMainland, w, r)
 		return
 	}
 	headers := w.Header()
