@@ -1,5 +1,9 @@
 {
   "rewrites": [
+    {
+      "source": "/csl-latest",
+      "destination": "https://csl-1258131272.cos.ap-shanghai.myqcloud.com/latest.json"
+    },
     { "source": "/(.*)", "destination": "/api/handler.go" }
   ],
   "functions": {
